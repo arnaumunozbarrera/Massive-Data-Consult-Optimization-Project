@@ -1,0 +1,11 @@
+ipykernel
+git+https://github.com/Oriolrt/GABDConnect
+pymongo
+sshtunnel
+scikit-learn
+tqdm
+matplotlib
+pandas
+ucimlrepo
+
+

@@ -1,0 +1,12 @@
+-- Execució desde usuari sys
+-- Verificació de l'inserció a la taula EXPERIMENT
+SELECT * FROM "gestorUCI".EXPERIMENT;
+
+-- Verificació de l'inserció a la taula CLASSIFICADOR
+SELECT * FROM "gestorUCI".CLASSIFICADOR;
+
+-- Verificació de l'inserció a la taula EXPERIMENT
+SELECT * FROM "gestorUCI".PARAMETERS;
+
+-- Verificació de l'inserció a la taula EXPERIMENT
+SELECT * FROM "gestorUCI".REPETICIO;

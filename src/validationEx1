@@ -1,0 +1,5 @@
+-- Execució desde usuari sys
+-- Verificació de l'inserció a la taula DATASET
+SELECT * FROM "gestorUCI".DATASET;
+-- Verificació de l'inserció a la taula SAMPLES
+SELECT * FROM "gestorUCI".SAMPLES;

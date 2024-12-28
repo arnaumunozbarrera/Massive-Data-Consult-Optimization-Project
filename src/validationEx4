@@ -1,0 +1,29 @@
+-- Execució desde l'usuari "gestorUCI" (cometes incloses)
+-- Validació de la vista materialitzada
+SELECT * 
+FROM VISTAMATERIALITZADA;
+
+-- Validació de la vista creada a partir de la vista materialitzada
+
+SELECT * 
+FROM VISTA_FINAL;
+
+-- Anàlisi de les vistes amb/sense índexs i el seu rendiment 
+DROP INDEX IDX_CLASSIFICADOR;
+DROP INDEX IDX_PARAMETERS;
+
+EXPLAIN PLAN FOR
+SELECT *
+FROM VISTAMATERIALITZADA;
+
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
+
+
+CREATE INDEX IDX_CLASSIFICADOR ON VISTAMATERIALITZADA(Classificador);
+CREATE INDEX IDX_PARAMETERS ON VISTAMATERIALITZADA(Parameters);
+
+EXPLAIN PLAN FOR
+SELECT *
+FROM VISTAMATERIALITZADA;
+
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);

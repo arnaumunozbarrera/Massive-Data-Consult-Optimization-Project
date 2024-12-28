@@ -1,0 +1,27 @@
+-- Execució desde usuari sys
+-- Validar taules
+SELECT table_name 
+FROM all_tables 
+WHERE table_name IN ('DATASET', 'SAMPLES','CLASSIFICADOR', 'EXPERIMENT', 'PARAMETERS', 'REPETICIO');
+
+-- Validar columnes de cada taula
+SELECT table_name, column_name
+FROM all_tab_columns
+WHERE table_name IN ('DATASET', 'SAMPLES','CLASSIFICADOR', 'EXPERIMENT', 'PARAMETERS', 'REPETICIO')
+  AND column_name IN (
+      'NOM', 'NOMCURT', 'DATA', 'ACCURACY', 'F_SCORE', 'NUM', 'VALORS', 'ID_DATASET'
+  );
+
+-- Validar claus primaries
+SELECT constraint_name, table_name
+FROM all_constraints
+WHERE constraint_type = 'P'
+  AND table_name IN ('DATASET', 'SAMPLES','CLASSIFICADOR', 'EXPERIMENT', 'PARAMETERS', 'REPETICIO');
+
+-- Validar foreign keys 
+SELECT ac.constraint_name, ac.table_name, acc.column_name, accc.table_name AS referenced_table
+FROM all_constraints ac
+JOIN all_cons_columns acc ON ac.constraint_name = acc.constraint_name
+JOIN all_constraints accc ON ac.r_constraint_name = accc.constraint_name
+WHERE ac.constraint_type = 'R'
+  AND ac.table_name IN ('DATASET', 'SAMPLES','CLASSIFICADOR', 'EXPERIMENT', 'PARAMETERS', 'REPETICIO');
